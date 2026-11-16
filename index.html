@@ -1,0 +1,655 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vidhu M — Graphic Designer</title>
+<meta name="description" content="Vidhu M is a graphic designer creating logos, brand identities, apparel and bold posters. See the portfolio and get in touch.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vidhu M — Graphic Designer">
+<meta property="og:description" content="Logos, branding, apparel & posters. Bold, colourful design that feels alive.">
+<meta property="og:url" content="https://anmolguptacse.github.io/vidhu-m/">
+<meta property="og:image" content="https://anmolguptacse.github.io/vidhu-m/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://anmolguptacse.github.io/vidhu-m/og.png">
+<meta name="theme-color" content="#FFF6E9">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='29' fill='%23FF5FA2' stroke='%231B1B1F' stroke-width='4'/%3E%3Ctext x='32' y='42' font-family='Arial Black,Arial' font-weight='900' font-size='26' text-anchor='middle' fill='%231B1B1F'%3EVM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FFF6E9; --paper:#FFFDF8; --ink:#1B1B1F; --muted:#5E5A66;
+    --pink:#FF5FA2; --yellow:#FFD23F; --blue:#3B5BFF; --green:#2EC4A0;
+    --orange:#FF7A3D; --purple:#9B5DE5;
+    --radius:22px; --shadow:6px 6px 0 var(--ink);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Bricolage Grotesque",system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.5;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  img,svg{display:block;max-width:100%}
+  .wrap{width:min(1200px,100% - 32px);margin-inline:auto}
+  .hand{font-family:"Caveat",cursive;font-weight:600}
+
+  /* ---------- buttons ---------- */
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border:2.5px solid var(--ink);border-radius:999px;font-weight:700;font-size:1rem;background:var(--yellow);box-shadow:4px 4px 0 var(--ink);transition:transform .15s,box-shadow .15s;cursor:pointer;font-family:inherit;color:var(--ink)}
+  .btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+  .btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+  .btn.ghost{background:var(--paper)}
+  .btn.pink{background:var(--pink)}
+
+  /* ---------- nav ---------- */
+  header{position:sticky;top:0;z-index:50;padding:14px 0;background:color-mix(in srgb,var(--cream) 88%,transparent);backdrop-filter:blur(10px);border-bottom:2px solid transparent;transition:border-color .2s}
+  header.scrolled{border-color:var(--ink)}
+  nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .logo{font-weight:800;font-size:1.5rem;letter-spacing:-.03em;display:flex;align-items:center;gap:8px}
+  .logo i{width:14px;height:14px;border-radius:50%;background:var(--pink);display:inline-block;border:2px solid var(--ink)}
+  .nav-links{display:flex;gap:28px;font-weight:600}
+  .nav-links a{position:relative}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-4px;height:3px;width:0;background:var(--pink);border-radius:3px;transition:width .2s}
+  .nav-links a:hover::after{width:100%}
+  .menu-btn{display:none;background:none;border:2.5px solid var(--ink);border-radius:12px;width:44px;height:44px;cursor:pointer;font-size:1.2rem}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;padding:72px 0 90px;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.25fr .9fr;gap:40px;align-items:center}
+  .status{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border:2px solid var(--ink);border-radius:999px;background:var(--paper);font-weight:600;font-size:.95rem;margin-bottom:24px}
+  .status .dot{width:10px;height:10px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 var(--green);animation:ping 1.8s infinite}
+  @keyframes ping{0%{box-shadow:0 0 0 0 rgba(46,196,160,.7)}100%{box-shadow:0 0 0 12px rgba(46,196,160,0)}}
+  .hero h1{font-size:clamp(3.4rem,10vw,8.5rem);line-height:.88;letter-spacing:-.05em;font-weight:800}
+  .hero h1 .outline{color:transparent;-webkit-text-stroke:2.5px var(--ink)}
+  .hero h1 .squiggle{position:relative;display:inline-block}
+  .hero h1 .squiggle svg{position:absolute;left:0;bottom:-.12em;width:100%;height:.25em}
+  .hero p.lead{font-size:clamp(1.1rem,2vw,1.35rem);max-width:520px;margin:28px 0 34px;color:var(--muted)}
+  .hero p.lead b{color:var(--ink)}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-art{position:relative;aspect-ratio:1;max-width:460px;margin-left:auto;width:100%}
+  .hero-card{position:absolute;border:2.5px solid var(--ink);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;transition:transform .3s}
+  .hero-card:hover{transform:rotate(0deg) scale(1.04)!important;z-index:5}
+  .hc1{width:62%;top:2%;left:4%;transform:rotate(-7deg);background:var(--yellow)}
+  .hc2{width:55%;top:30%;right:0;transform:rotate(6deg);background:var(--blue);z-index:2}
+  .hc3{width:50%;bottom:0;left:12%;transform:rotate(-3deg);background:var(--pink);z-index:3}
+  .sticker{position:absolute;z-index:6;width:120px;height:120px;right:-4px;top:-8px;animation:spin 14s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .note{position:absolute;bottom:4%;right:2%;z-index:7;font-size:1.6rem;transform:rotate(-8deg);color:var(--ink)}
+  .blob{position:absolute;border-radius:50%;filter:blur(0);z-index:-1;opacity:.9}
+  .b1{width:220px;height:220px;background:var(--yellow);top:-60px;left:-80px}
+  .b2{width:140px;height:140px;background:var(--green);bottom:20px;left:42%}
+  .b3{width:90px;height:90px;background:var(--purple);top:60px;right:38%}
+  .shape{position:absolute;z-index:-1}
+
+  /* ---------- marquee ---------- */
+  .marquee{background:var(--ink);color:var(--cream);border-block:2.5px solid var(--ink);transform:rotate(-1.5deg);margin:0 -20px;overflow:hidden}
+  .marquee-track{display:flex;width:max-content;animation:scroll 28s linear infinite}
+  .marquee span{font-size:clamp(1.4rem,3vw,2.2rem);font-weight:800;padding:18px 26px;white-space:nowrap;display:flex;align-items:center;gap:26px}
+  .marquee span::after{content:"✦";color:var(--yellow)}
+  .marquee span:nth-child(3n+2)::after{color:var(--pink)}
+  .marquee span:nth-child(3n)::after{color:var(--green)}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* ---------- sections ---------- */
+  section{padding:110px 0}
+  .eyebrow{display:inline-block;font-weight:700;font-size:.9rem;text-transform:uppercase;letter-spacing:.12em;padding:6px 14px;border:2px solid var(--ink);border-radius:999px;background:var(--paper);margin-bottom:18px}
+  h2{font-size:clamp(2.4rem,6vw,4.6rem);line-height:.95;letter-spacing:-.04em;font-weight:800}
+  h2 em{font-style:normal;background:var(--yellow);padding:0 .15em;border-radius:12px;display:inline-block;transform:rotate(-2deg)}
+  .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:44px}
+
+  /* ---------- work ---------- */
+  .filters{display:flex;gap:10px;flex-wrap:wrap}
+  .filters button{font-family:inherit;font-weight:700;font-size:.95rem;padding:10px 18px;border:2px solid var(--ink);border-radius:999px;background:var(--paper);cursor:pointer;transition:all .15s;color:var(--ink)}
+  .filters button:hover{background:var(--cream);transform:translateY(-2px)}
+  .filters button.active{background:var(--ink);color:var(--cream)}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .card{background:var(--paper);border:2.5px solid var(--ink);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 0 0 var(--ink);text-align:left;font-family:inherit;color:inherit;padding:0;width:100%}
+  .card:hover,.card:focus-visible{transform:translate(-4px,-4px) rotate(-.6deg);box-shadow:var(--shadow);outline:none}
+  .card:nth-child(even):hover{transform:translate(-4px,-4px) rotate(.6deg)}
+  .card .thumb{aspect-ratio:4/3;border-bottom:2.5px solid var(--ink);overflow:hidden}
+  .card .thumb svg{width:100%;height:100%;transition:transform .5s}
+  .card:hover .thumb svg{transform:scale(1.06)}
+  .card .meta{padding:16px 18px 18px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+  .card h3{font-size:1.2rem;letter-spacing:-.02em;line-height:1.2}
+  .card small{color:var(--muted);font-weight:600}
+  .card .arrow{flex:none;width:40px;height:40px;border-radius:50%;border:2px solid var(--ink);display:grid;place-items:center;transition:all .2s;font-size:1.1rem}
+  .card:hover .arrow{background:var(--pink);transform:rotate(-45deg)}
+  .card.hide{display:none}
+  .grid{grid-auto-flow:dense}
+  .card.featured{grid-column:1/-1}
+  .card.featured .thumb{aspect-ratio:16/5;display:grid;grid-template-columns:repeat(4,1fr);background:#E9E6F2}
+  .card.featured .thumb img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .5s}
+  .card.featured .thumb img+img{border-left:2.5px solid var(--ink)}
+  .card.featured:hover .thumb img{transform:scale(1.05)}
+  .badge{display:inline-block;margin-bottom:6px;padding:3px 10px;border:2px solid var(--ink);border-radius:999px;background:var(--purple);color:var(--paper);font-size:.75rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+
+  /* case-study gallery in modal */
+  .m-art.gallery{aspect-ratio:auto;display:grid;grid-template-columns:repeat(2,1fr);gap:14px;padding:14px;background:#E9E6F2}
+  .m-art.gallery a{display:block;border:2px solid var(--ink);border-radius:16px;overflow:hidden;background:#fff}
+  .m-art.gallery img{width:100%;height:auto;display:block;transition:transform .4s}
+  .m-art.gallery a:hover img{transform:scale(1.03)}
+  .m-art.gallery .wide{grid-column:1/-1}
+  .m-art.gallery .narrow{grid-column:1/-1;justify-self:center;width:min(100%,520px)}
+  .m-art.gallery figcaption{padding:8px 12px;font-weight:700;font-size:.9rem;border-top:2px solid var(--ink);background:var(--paper)}
+
+  /* ---------- about ---------- */
+  .about{background:var(--paper);border-block:2.5px solid var(--ink)}
+  .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:center}
+  .portrait{position:relative;max-width:420px}
+  .portrait .frame{border:2.5px solid var(--ink);border-radius:50% 50% var(--radius) var(--radius);overflow:hidden;box-shadow:10px 10px 0 var(--purple);background:var(--orange)}
+  .portrait .tag{position:absolute;padding:8px 14px;border:2px solid var(--ink);border-radius:999px;font-weight:700;background:var(--paper);box-shadow:3px 3px 0 var(--ink);font-size:.9rem}
+  .portrait .t1{top:12%;left:-14px;transform:rotate(-8deg);background:var(--yellow)}
+  .portrait .t2{bottom:18%;right:-18px;transform:rotate(6deg);background:var(--green)}
+  .portrait .t3{bottom:-12px;left:20%;transform:rotate(-3deg);background:var(--pink)}
+  .about p{font-size:1.15rem;color:var(--muted);margin-top:22px;max-width:600px}
+  .about p b{color:var(--ink)}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+  .stat{border:2.5px solid var(--ink);border-radius:18px;padding:18px;background:var(--cream)}
+  .stat strong{display:block;font-size:2.4rem;line-height:1;letter-spacing:-.04em}
+  .stat span{font-weight:600;color:var(--muted);font-size:.95rem}
+  .tools{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+  .tools span{padding:8px 14px;border:2px dashed var(--ink);border-radius:12px;font-weight:600;font-size:.95rem}
+
+  /* ---------- services ---------- */
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .service{border:2.5px solid var(--ink);border-radius:var(--radius);padding:30px 26px 32px;box-shadow:var(--shadow);transition:transform .2s;position:relative;overflow:hidden}
+  .service:hover{transform:translateY(-6px) rotate(-1deg)}
+  .service:nth-child(1){background:var(--yellow)}
+  .service:nth-child(2){background:var(--pink)}
+  .service:nth-child(3){background:var(--green)}
+  .service .icon{width:64px;height:64px;border:2.5px solid var(--ink);border-radius:18px;background:var(--paper);display:grid;place-items:center;margin-bottom:22px}
+  .service h3{font-size:1.65rem;letter-spacing:-.03em;line-height:1.1;margin-bottom:12px}
+  .service p{font-weight:500}
+  .service ul{list-style:none;margin-top:18px;display:flex;flex-direction:column;gap:6px;font-weight:700}
+  .service li::before{content:"→ "}
+  .service .num{position:absolute;right:18px;top:10px;font-size:4rem;font-weight:800;opacity:.15;letter-spacing:-.05em}
+
+  /* ---------- process ---------- */
+  .process{background:var(--ink);color:var(--cream)}
+  .process .eyebrow{background:transparent;border-color:var(--cream);color:var(--cream)}
+  .process h2 em{color:var(--ink)}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s}
+  .step{border:2px solid rgba(255,246,233,.25);border-radius:var(--radius);padding:26px;transition:border-color .2s,transform .2s}
+  .step:hover{border-color:var(--yellow);transform:translateY(-4px)}
+  .step b{display:inline-grid;place-items:center;width:46px;height:46px;border-radius:50%;color:var(--ink);font-size:1.2rem;margin-bottom:20px}
+  .step:nth-child(1) b{background:var(--yellow)}
+  .step:nth-child(2) b{background:var(--pink)}
+  .step:nth-child(3) b{background:var(--green)}
+  .step:nth-child(4) b{background:var(--blue);color:var(--cream)}
+  .step h3{font-size:1.4rem;margin-bottom:8px;letter-spacing:-.02em}
+  .step p{color:rgba(255,246,233,.7)}
+
+  /* ---------- contact ---------- */
+  .contact{text-align:center;position:relative;overflow:hidden}
+  .contact h2{font-size:clamp(3rem,9vw,7.5rem)}
+  .contact p{font-size:1.2rem;color:var(--muted);max-width:560px;margin:22px auto 36px}
+  .mail{display:inline-flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center}
+  .mail a.big{font-size:clamp(1.2rem,3.6vw,2.4rem);font-weight:800;letter-spacing:-.03em;padding:16px 30px;border:2.5px solid var(--ink);border-radius:999px;background:var(--paper);box-shadow:var(--shadow);transition:all .2s;word-break:break-all}
+  .mail a.big:hover{background:var(--yellow);transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--ink)}
+  .copy-msg{display:block;margin-top:16px;font-weight:700;color:var(--green);height:1.5em}
+  .contact .shape{z-index:-1}
+
+  footer{border-top:2.5px solid var(--ink);padding:28px 0;background:var(--paper)}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-weight:600}
+  .socials{display:flex;gap:10px}
+  .socials a{width:44px;height:44px;border:2px solid var(--ink);border-radius:50%;display:grid;place-items:center;transition:all .2s;background:var(--cream)}
+  .socials a:hover{background:var(--pink);transform:translateY(-3px)}
+
+  /* ---------- modal ---------- */
+  dialog{border:2.5px solid var(--ink);border-radius:28px;padding:0;max-width:min(900px,calc(100% - 32px));width:100%;background:var(--paper);color:var(--ink);box-shadow:10px 10px 0 var(--ink);margin:auto}
+  dialog::backdrop{background:rgba(27,27,31,.55);backdrop-filter:blur(4px)}
+  dialog[open]{animation:pop .3s cubic-bezier(.2,1.4,.4,1)}
+  @keyframes pop{from{transform:scale(.9) rotate(-2deg);opacity:0}}
+  .m-art{border-bottom:2.5px solid var(--ink);aspect-ratio:16/9;overflow:hidden}
+  .m-art svg{width:100%;height:100%}
+  .m-body{padding:28px 30px 32px;display:grid;grid-template-columns:1.4fr 1fr;gap:28px}
+  .m-body h3{font-size:2rem;letter-spacing:-.03em;line-height:1.05}
+  .m-body p{color:var(--muted);margin-top:12px}
+  .m-info dt{font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:12px}
+  .m-info dd{font-weight:700}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .chips span{padding:5px 12px;border:2px solid var(--ink);border-radius:999px;font-size:.85rem;font-weight:700;background:var(--cream)}
+  .close{position:sticky;top:14px;display:block;margin:14px 14px -60px auto;z-index:5;width:46px;height:46px;border-radius:50%;border:2.5px solid var(--ink);background:var(--yellow);font-size:1.3rem;cursor:pointer;box-shadow:3px 3px 0 var(--ink);font-family:inherit;color:var(--ink)}
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:960px){
+    .hero-grid,.about-grid{grid-template-columns:1fr}
+    .hero-art{margin:20px auto 0;max-width:400px}
+    .grid,.services-grid{grid-template-columns:repeat(2,1fr)}
+    .steps{grid-template-columns:repeat(2,1fr)}
+    .portrait{margin:0 auto}
+    .m-body{grid-template-columns:1fr}
+  }
+  @media (max-width:680px){
+    .card.featured .thumb{aspect-ratio:4/3;grid-template-columns:repeat(2,1fr)}
+    .card.featured .thumb img:nth-child(n+3){display:none}
+    .m-art.gallery{grid-template-columns:1fr}
+    .nav-links{position:fixed;inset:70px 16px auto 16px;flex-direction:column;gap:0;background:var(--paper);border:2.5px solid var(--ink);border-radius:20px;box-shadow:var(--shadow);padding:10px;display:none}
+    .nav-links.open{display:flex}
+    .nav-links a{padding:12px 14px;font-size:1.1rem}
+    .menu-btn{display:block}
+    nav .btn{display:none}
+    .grid,.services-grid,.steps{grid-template-columns:1fr}
+    section{padding:80px 0}
+    .stats{grid-template-columns:1fr 1fr 1fr;gap:10px}
+    .stat{padding:14px}
+    .stat strong{font-size:1.8rem}
+    .hero{padding:44px 0 70px}
+    .sticker{width:92px;height:92px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<header id="top">
+  <nav class="wrap">
+    <a href="#top" class="logo"><i></i>vidhu.m</a>
+    <div class="nav-links" id="navLinks">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#contact" class="btn pink">Let's talk ✦</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+  </nav>
+</header>
+
+<main>
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="status"><span class="dot"></span> Available for freelance &amp; full-time</div>
+      <h1>Hi, I'm<br><span class="squiggle">Vidhu M<svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M2 12 Q 20 2 38 12 T 75 12 T 112 12 T 150 12 T 188 12 T 225 12 T 262 12 T 298 12" fill="none" stroke="#FF5FA2" stroke-width="5" stroke-linecap="round"/></svg></span><br><span class="outline">designer.</span></h1>
+      <p class="lead">I design <b>brands people remember</b>, <b>social posts that stop the scroll</b> and <b>posters loud enough to hang on walls</b>.</p>
+      <div class="hero-ctas">
+        <a href="#work" class="btn">See my work ↓</a>
+        <a href="mailto:personcool135@gmail.com" class="btn ghost">Hire me</a>
+      </div>
+    </div>
+
+    <div class="hero-art" aria-hidden="true">
+      <svg class="sticker" viewBox="0 0 120 120">
+        <defs><path id="circ" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
+        <circle cx="60" cy="60" r="58" fill="#FFD23F" stroke="#1B1B1F" stroke-width="2.5"/>
+        <text font-size="12.5" font-weight="800" letter-spacing="2" fill="#1B1B1F"><textPath href="#circ">BRANDING • SOCIAL • POSTERS • </textPath></text>
+        <path d="M60 44 L64 56 L76 60 L64 64 L60 76 L56 64 L44 60 L56 56Z" fill="#FF5FA2" stroke="#1B1B1F" stroke-width="2"/>
+      </svg>
+      <div class="hero-card hc1" id="hc1"></div>
+      <div class="hero-card hc2" id="hc2"></div>
+      <div class="hero-card hc3" id="hc3"></div>
+      <div class="note hand">fresh work! ↗</div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marquee"></div>
+</div>
+
+<!-- ================= WORK ================= -->
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Selected work</span>
+        <h2>Things I've<br><em>made</em> lately</h2>
+      </div>
+      <div class="filters" role="tablist" aria-label="Filter projects">
+        <button class="active" data-filter="all">All</button>
+        <button data-filter="branding">Branding &amp; Logos</button>
+        <button data-filter="apparel">Apparel</button>
+      </div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about" class="about">
+  <div class="wrap about-grid">
+    <div class="portrait reveal">
+      <div class="frame">
+        <svg viewBox="0 0 400 480" role="img" aria-label="Illustrated portrait placeholder for Vidhu M">
+          <rect width="400" height="480" fill="#FF7A3D"/>
+          <circle cx="330" cy="80" r="40" fill="#FFD23F"/>
+          <path d="M40 120 l20 -20 l20 20 l20 -20 l20 20" stroke="#1B1B1F" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <path d="M70 480 Q70 330 200 330 Q330 330 330 480Z" fill="#3B5BFF" stroke="#1B1B1F" stroke-width="5"/>
+          <rect x="172" y="280" width="56" height="60" fill="#F2B98F" stroke="#1B1B1F" stroke-width="5"/>
+          <path d="M120 200 Q120 100 200 100 Q280 100 280 200 Q280 250 260 270 L140 270 Q120 250 120 200Z" fill="#1B1B1F"/>
+          <ellipse cx="200" cy="215" rx="68" ry="78" fill="#F2B98F" stroke="#1B1B1F" stroke-width="5"/>
+          <path d="M132 190 Q150 120 220 130 Q262 140 270 190 Q240 160 200 162 Q160 160 132 190Z" fill="#1B1B1F"/>
+          <circle cx="176" cy="215" r="6" fill="#1B1B1F"/><circle cx="224" cy="215" r="6" fill="#1B1B1F"/>
+          <path d="M180 250 Q200 266 220 250" stroke="#1B1B1F" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <circle cx="160" cy="238" r="9" fill="#FF5FA2" opacity=".6"/><circle cx="240" cy="238" r="9" fill="#FF5FA2" opacity=".6"/>
+          <g transform="rotate(-18 320 330)"><rect x="300" y="250" width="16" height="130" rx="4" fill="#FFD23F" stroke="#1B1B1F" stroke-width="4"/><path d="M300 380 L308 404 L316 380Z" fill="#1B1B1F"/></g>
+          <path d="M60 380 L70 400 L92 404 L76 418 L80 440 L60 430 L40 440 L44 418 L28 404 L50 400Z" fill="#2EC4A0" stroke="#1B1B1F" stroke-width="4"/>
+        </svg>
+      </div>
+      <span class="tag t1">✏️ Ideas first</span>
+      <span class="tag t2">🎨 Colour nerd</span>
+      <span class="tag t3">☕ Runs on chai</span>
+    </div>
+
+    <div class="reveal">
+      <span class="eyebrow">About me</span>
+      <h2>Design that<br>feels <em>alive</em></h2>
+      <p>I'm <b>Vidhu M</b>, a graphic designer who loves turning ideas into bold, colourful visuals. From a brand's first logo sketch to the posts that fill its Instagram feed, I help businesses and creators look as good as they actually are.</p>
+      <p>My style mixes <b>clean strategy</b> with <b>playful energy</b>. Every colour, letter and shape has a reason to be there.</p>
+      <div class="stats">
+        <div class="stat"><strong>✏️</strong><span>Logos that stick</span></div>
+        <div class="stat"><strong>👕</strong><span>Apparel that stands out</span></div>
+        <div class="stat"><strong>🎨</strong><span>Posters &amp; social that pop</span></div>
+      </div>
+      <div class="tools">
+        <span>Adobe Illustrator</span><span>Photoshop</span><span>Figma</span><span>Canva</span><span>Procreate</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Services</span>
+        <h2>How I can<br><em>help</em> you</h2>
+      </div>
+      <p class="hand" style="font-size:1.8rem;transform:rotate(-3deg)">pick one… or all three! ✨</p>
+    </div>
+    <div class="services-grid">
+      <article class="service reveal">
+        <span class="num">01</span>
+        <div class="icon"><svg width="34" height="34" viewBox="0 0 34 34"><circle cx="17" cy="17" r="13" fill="#FF5FA2" stroke="#1B1B1F" stroke-width="2.5"/><path d="M11 17 L17 9 L23 17 L17 25Z" fill="#FFD23F" stroke="#1B1B1F" stroke-width="2.5"/></svg></div>
+        <h3>Branding &amp; Logo Design</h3>
+        <p>A complete visual identity that makes your brand instantly recognisable.</p>
+        <ul><li>Logo &amp; logo variations</li><li>Colour &amp; type system</li><li>Brand guidelines</li><li>Stationery &amp; packaging</li></ul>
+      </article>
+      <article class="service reveal">
+        <span class="num">02</span>
+        <div class="icon"><svg width="34" height="34" viewBox="0 0 34 34"><rect x="5" y="5" width="24" height="24" rx="7" fill="#3B5BFF" stroke="#1B1B1F" stroke-width="2.5"/><circle cx="17" cy="17" r="5.5" fill="#FFF6E9" stroke="#1B1B1F" stroke-width="2.5"/><circle cx="24" cy="10" r="1.8" fill="#FFF6E9"/></svg></div>
+        <h3>Social Media Design</h3>
+        <p>Scroll-stopping posts, stories and ads that keep your feed on-brand.</p>
+        <ul><li>Instagram posts &amp; carousels</li><li>Stories &amp; reels covers</li><li>Ad creatives</li><li>Feed templates</li></ul>
+      </article>
+      <article class="service reveal">
+        <span class="num">03</span>
+        <div class="icon"><svg width="34" height="34" viewBox="0 0 34 34"><rect x="7" y="4" width="20" height="26" rx="3" fill="#FFD23F" stroke="#1B1B1F" stroke-width="2.5"/><circle cx="17" cy="14" r="5" fill="#FF7A3D" stroke="#1B1B1F" stroke-width="2"/><path d="M11 24 H23" stroke="#1B1B1F" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+        <h3>Posters &amp; Illustration</h3>
+        <p>Eye-catching posters and custom illustrations for events, campaigns and walls.</p>
+        <ul><li>Event &amp; gig posters</li><li>Custom illustrations</li><li>Print &amp; merch graphics</li><li>Editorial artwork</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section class="process">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Process</span>
+        <h2>From chat to<br><em>final files</em></h2>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><b>1</b><h3>Discover</h3><p>We talk about your brand, audience and goals. I ask a lot of questions.</p></div>
+      <div class="step reveal"><b>2</b><h3>Explore</h3><p>Moodboards, sketches and rough ideas to find the right direction together.</p></div>
+      <div class="step reveal"><b>3</b><h3>Design</h3><p>I polish the chosen concept with your feedback until it feels just right.</p></div>
+      <div class="step reveal"><b>4</b><h3>Deliver</h3><p>You get every final file, ready for print, web and social. No surprises.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="contact">
+  <svg class="shape" style="left:4%;top:16%;width:90px" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 5 L61 39 L95 50 L61 61 L50 95 L39 61 L5 50 L39 39Z" fill="#FFD23F" stroke="#1B1B1F" stroke-width="3"/></svg>
+  <svg class="shape" style="right:6%;top:30%;width:80px" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="44" fill="#2EC4A0" stroke="#1B1B1F" stroke-width="3"/></svg>
+  <svg class="shape" style="left:12%;bottom:12%;width:70px" viewBox="0 0 100 100" aria-hidden="true"><rect x="10" y="10" width="80" height="80" rx="20" fill="#FF5FA2" stroke="#1B1B1F" stroke-width="3" transform="rotate(15 50 50)"/></svg>
+  <div class="wrap reveal">
+    <span class="eyebrow">Contact</span>
+    <h2>Let's make<br>something <em>bold</em></h2>
+    <p>Got a project, an idea, or just want to say hi? My inbox is always open, or slide into my DMs at <a href="https://www.instagram.com/design_by_anvi/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:800;text-decoration:underline;text-decoration-color:var(--pink);text-decoration-thickness:3px">@design_by_anvi</a>.</p>
+    <div class="mail">
+      <a class="big" href="mailto:personcool135@gmail.com">personcool135@gmail.com</a>
+      <button class="btn ghost" id="copyBtn" type="button">Copy ⧉</button>
+    </div>
+    <span class="copy-msg" id="copyMsg" aria-live="polite"></span>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year"></span> Vidhu M. Made with colour ✦</span>
+    <div class="socials">
+      <a href="https://www.instagram.com/design_by_anvi/" target="_blank" rel="noopener" aria-label="Instagram @design_by_anvi" title="Instagram @design_by_anvi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+      <a href="#" aria-label="Behance" title="Behance"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8.2 11.3c.9-.4 1.5-1.2 1.5-2.3C9.7 6.9 8.1 6 6 6H1v12h5.3c2.2 0 4-1.1 4-3.4 0-1.5-.8-2.8-2.1-3.3zM3.5 8h2.2c.9 0 1.6.3 1.6 1.2 0 .9-.6 1.3-1.5 1.3H3.5V8zm2.5 8H3.5v-3.1H6c1.1 0 1.8.4 1.8 1.6S7 16 6 16zM20.5 7h-5V5.7h5V7zM22.9 13.5c0-2.7-1.6-4.9-4.4-4.9-2.7 0-4.6 2-4.6 4.7 0 2.8 1.8 4.7 4.6 4.7 2.1 0 3.5-1 4.2-3h-2.2c-.2.7-1.1 1.1-1.9 1.1-1.3 0-2.1-.7-2.2-2.1h6.5v-.5zm-6.5-1.1c.1-1.1.8-1.8 2-1.8 1.1 0 1.8.7 1.9 1.8h-3.9z"/></svg></a>
+      <a href="#" aria-label="LinkedIn" title="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3V9.5zm6.5 0h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.3 0-2.9-1.8-2.9s-2.1 1.4-2.1 2.8V21h-4V9.5z"/></svg></a>
+      <a href="mailto:personcool135@gmail.com" aria-label="Email" title="Email"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 7l9 6 9-6"/></svg></a>
+    </div>
+    <a href="#top">Back to top ↑</a>
+  </div>
+</footer>
+
+<!-- ================= PROJECT MODAL ================= -->
+<dialog id="modal" aria-labelledby="mTitle">
+  <div style="position:relative">
+    <button class="close" id="closeModal" aria-label="Close">✕</button>
+    <div class="m-art" id="mArt"></div>
+    <div class="m-body">
+      <div>
+        <h3 id="mTitle"></h3>
+        <p id="mDesc"></p>
+        <div class="chips" id="mTags"></div>
+      </div>
+      <dl class="m-info">
+        <dt>Category</dt><dd id="mCat"></dd>
+        <dt>Year</dt><dd id="mYear"></dd>
+        <dt>Tools</dt><dd id="mTools"></dd>
+      </dl>
+    </div>
+  </div>
+</dialog>
+
+<script>
+/* ============================================================
+   PROJECTS — replace these with Vidhu's real work.
+   To use a real image instead of the drawn artwork, set
+   `img: "images/your-file.jpg"` on a project.
+   ============================================================ */
+const F = 'font-family="Bricolage Grotesque, sans-serif" font-weight="800"';
+const S = 'stroke="#1B1B1F" stroke-width="4"';
+
+const art = {
+  mango: `<svg viewBox="0 0 400 300"><rect width="400" height="300" fill="#FFD23F"/>
+    <circle cx="340" cy="40" r="70" fill="#FF7A3D" opacity=".25"/>
+    <path d="M200 60 C 260 60 280 120 270 160 C 255 215 145 215 130 160 C 120 120 140 60 200 60Z" fill="#FF7A3D" ${S}/>
+    <path d="M200 62 Q 215 30 250 30 Q 240 60 200 62Z" fill="#2EC4A0" ${S}/>
+    <circle cx="175" cy="120" r="10" fill="#FFF6E9" opacity=".8"/>
+    <text x="200" y="258" text-anchor="middle" ${F} font-size="38" fill="#1B1B1F" letter-spacing="-1">mango mood</text></svg>`,
+
+  kosha: `<svg viewBox="0 0 400 300"><rect width="400" height="300" fill="#9B5DE5"/>
+    <g transform="rotate(10 250 170)"><rect x="150" y="110" width="210" height="125" rx="10" fill="#1B1B1F"/>
+      <text x="255" y="185" text-anchor="middle" ${F} font-size="30" fill="#FFD23F">K</text></g>
+    <g transform="rotate(-8 170 140)"><rect x="50" y="70" width="220" height="130" rx="10" fill="#FFF6E9" ${S}/>
+      <text x="76" y="150" ${F} font-size="50" fill="#1B1B1F" letter-spacing="-2">kosha</text>
+      <circle cx="240" cy="98" r="12" fill="#FF5FA2"/>
+      <rect x="76" y="168" width="90" height="6" rx="3" fill="#1B1B1F" opacity=".3"/></g></svg>`,
+
+  logofolio: `<svg viewBox="0 0 400 300"><rect width="400" height="300" fill="#1B1B1F"/>
+    <circle cx="80" cy="85" r="38" fill="#FFD23F"/><circle cx="80" cy="85" r="16" fill="#1B1B1F"/>
+    <rect x="160" y="47" width="76" height="76" rx="22" fill="#FF5FA2"/><path d="M178 105 L198 65 L218 105Z" fill="#1B1B1F"/>
+    <path d="M285 85 a35 35 0 1 1 70 0 a35 35 0 1 1 -70 0" fill="none" stroke="#2EC4A0" stroke-width="14"/>
+    <path d="M45 210 L80 160 L115 210Z" fill="#3B5BFF"/><circle cx="80" cy="198" r="8" fill="#FFF6E9"/>
+    <text x="198" y="215" text-anchor="middle" ${F} font-size="54" fill="#FF7A3D">V</text>
+    <g fill="#9B5DE5"><rect x="290" y="160" width="30" height="30" rx="6"/><rect x="324" y="160" width="30" height="30" rx="15"/><rect x="290" y="194" width="30" height="30" rx="15"/><rect x="324" y="194" width="30" height="30" rx="6"/></g>
+    <text x="200" y="278" text-anchor="middle" ${F} font-size="16" fill="#FFF6E9" letter-spacing="4">LOGOFOLIO · VOL.01</text></svg>`,
+
+  chai: `<svg viewBox="0 0 400 300"><rect width="400" height="300" fill="#FF7A3D"/>
+    <g transform="rotate(-6 110 150)"><rect x="40" y="60" width="140" height="170" rx="16" fill="#FFF6E9" ${S}/>
+      <path d="M80 120 h60 v40 a30 30 0 0 1 -60 0z" fill="#FF7A3D" ${S}/><path d="M140 130 q20 0 20 15 q0 15 -20 15" fill="none" ${S}/>
+      <path d="M95 100 q5 -10 0 -18 M115 100 q5 -10 0 -18" ${S} fill="none" stroke-linecap="round"/>
+      <text x="110" y="215" text-anchor="middle" ${F} font-size="22" fill="#1B1B1F">chai?</text></g>
+    <g transform="rotate(5 290 150)"><rect x="220" y="60" width="140" height="170" rx="16" fill="#1B1B1F"/>
+      <text x="290" y="130" text-anchor="middle" ${F} font-size="30" fill="#FFD23F">2 FOR</text>
+      <text x="290" y="170" text-anchor="middle" ${F} font-size="40" fill="#FF5FA2">₹49</text>
+      <rect x="250" y="190" width="80" height="22" rx="11" fill="#FFF6E9"/></g></svg>`,
+
+  bloom: `<svg viewBox="0 0 400 300"><rect width="400" height="300" fill="#FF5FA2"/>
+    <rect x="115" y="20" width="170" height="260" fill="#FFF6E9" ${S}/>
+    <g transform="translate(200 120)">
+      ${[0,60,120,180,240,300].map(a=>`<ellipse cx="0" cy="-36" rx="20" ry="34" fill="${a%120?'#FFD23F':'#FF7A3D'}" stroke="#1B1B1F" stroke-width="3" transform="rotate(${a})"/>`).join('')}
+      <circle r="20" fill="#3B5BFF" stroke="#1B1B1F" stroke-width="3"/></g>
+    <path d="M200 160 Q 190 200 200 230" stroke="#2EC4A0" stroke-width="6" fill="none"/>
+    <text x="200" y="258" text-anchor="middle" ${F} font-size="28" fill="#1B1B1F" letter-spacing="-1">BLOOM FEST</text></svg>`,
+
+  paws: `<svg viewBox="0 0 400 300"><rect width="400" height="300" fill="#2EC4A0"/>
+    <circle cx="200" cy="125" r="80" fill="#FFF6E9" ${S}/>
+    <ellipse cx="200" cy="145" rx="30" ry="25" fill="#1B1B1F"/>
+    <circle cx="160" cy="105" r="13" fill="#1B1B1F"/><circle cx="186" cy="88" r="13" fill="#1B1B1F"/>
+    <circle cx="214" cy="88" r="13" fill="#1B1B1F"/><circle cx="240" cy="105" r="13" fill="#1B1B1F"/>
+    <path d="M188 145 h24" stroke="#FF5FA2" stroke-width="5" stroke-linecap="round"/>
+    <text x="200" y="262" text-anchor="middle" ${F} font-size="36" fill="#1B1B1F" letter-spacing="-1">pixel paws</text></svg>`,
+
+  monsoon: `<svg viewBox="0 0 400 300"><rect width="400" height="300" fill="#3B5BFF"/>
+    <rect x="115" y="20" width="170" height="260" fill="#1B1B1F" stroke="#FFF6E9" stroke-width="4"/>
+    <path d="M150 110 a26 26 0 0 1 40 -28 a32 32 0 0 1 58 12 a22 22 0 0 1 2 44 h-96 a22 22 0 0 1 -4 -28z" fill="#FFF6E9"/>
+    <g stroke="#FFD23F" stroke-width="4" stroke-linecap="round">
+      ${[150,175,200,225,250].map((x,i)=>`<path d="M${x} ${155+i%2*10} l-8 22"/><path d="M${x+6} ${195+i%2*8} l-8 22"/>`).join('')}</g>
+    <text x="200" y="252" text-anchor="middle" ${F} font-size="22" fill="#FF5FA2">MONSOON</text>
+    <text x="200" y="270" text-anchor="middle" ${F} font-size="11" fill="#FFF6E9" letter-spacing="3">SESSIONS · LIVE</text></svg>`,
+
+  fresh: `<svg viewBox="0 0 400 300"><rect width="400" height="300" fill="#FFF6E9"/>
+    <rect x="40" y="30" width="155" height="115" rx="14" fill="#FFD23F" ${S}/>
+    <text x="117" y="100" text-anchor="middle" ${F} font-size="36" fill="#1B1B1F">50% OFF</text>
+    <rect x="205" y="30" width="155" height="115" rx="14" fill="#9B5DE5" ${S}/>
+    <circle cx="282" cy="88" r="32" fill="#FFF6E9" ${S}/><path d="M270 88 l9 9 l16 -18" fill="none" ${S} stroke-linecap="round"/>
+    <rect x="40" y="155" width="155" height="115" rx="14" fill="#FF5FA2" ${S}/>
+    <text x="117" y="222" text-anchor="middle" ${F} font-size="26" fill="#FFF6E9">NEW DROP</text>
+    <rect x="205" y="155" width="155" height="115" rx="14" fill="#2EC4A0" ${S}/>
+    <text x="282" y="210" text-anchor="middle" ${F} font-size="20" fill="#1B1B1F">fresh fold</text>
+    <text x="282" y="235" text-anchor="middle" ${F} font-size="13" fill="#1B1B1F">laundry co.</text></svg>`,
+
+  neon: `<svg viewBox="0 0 400 300"><rect width="400" height="300" fill="#1B1B1F"/>
+    ${['#FF5FA2','#FFD23F','#2EC4A0','#3B5BFF','#9B5DE5'].map((c,i)=>`<circle cx="200" cy="130" r="${100-i*18}" fill="none" stroke="${c}" stroke-width="8"/>`).join('')}
+    <text x="200" y="142" text-anchor="middle" ${F} font-size="34" fill="#FFF6E9" letter-spacing="-1">NEON</text>
+    <text x="200" y="272" text-anchor="middle" ${F} font-size="26" fill="#FFD23F" letter-spacing="6">NIGHTS ’26</text></svg>`
+};
+
+const projects = [
+  {id:'silvertails', featured:true, cat:'apparel', catLabel:'Apparel & Sportswear', year:'2026',
+   title:'Silvertails × 404 — Performance Training Outfit',
+   cover:['images/silvertails-overlap-split.jpeg','images/silvertails-aero-racing.jpeg','images/silvertails-diagonal-colorblock.jpeg','images/silvertails-tactical-utility.jpeg'],
+   gallery:[
+     {src:'images/silvertails-kit-front-back.jpeg', cap:'Full kit, front & back', cls:'wide'},
+     {src:'images/silvertails-overlap-split.jpeg', cap:'Overlap Split'},
+     {src:'images/silvertails-aero-racing.jpeg', cap:'Aero Racing Panels'},
+     {src:'images/silvertails-diagonal-colorblock.jpeg', cap:'Diagonal Colorblock'},
+     {src:'images/silvertails-tactical-utility.jpeg', cap:'Tactical Utility'},
+     {src:'images/silvertails-shorts.jpeg', cap:'Overlap Split shorts, product render', cls:'narrow'}
+   ],
+   desc:'Apparel design for the Silvertails × 404 collaboration: a performance training outfit pairing a gradient sleeveless tank with 2-in-1 training shorts. I explored four short designs (Overlap Split, Aero Racing Panels, Diagonal Colorblock and Tactical Utility) and presented each with front and back views, close-up detail callouts and fabric features, all in a cohesive lavender-to-violet palette with co-branded logo placement.',
+   tags:['Apparel design','Sportswear','Co-branding','Product sheets'], tools:'Illustrator, Photoshop'},
+  {id:'buckaroo', img:'images/buckaroo.jpeg', bg:'#B5583A', title:'Buckaroo — Western Brand Logo', cat:'branding', catLabel:'Branding & Logos', year:'2026',
+   desc:'A playful western-themed logo where the wordmark becomes the cowboy himself: the letters arch into his legs, topped with a hat and sheriff star. Shown here against the desert landscape that inspired it.',
+   tags:['Logo','Wordmark','Character'], tools:'Illustrator'},
+  {id:'playgiant', img:'images/play-giant.jpeg', fit:'contain', bg:'#F5F1E3', title:'Play Giant Studios — Logo Design', cat:'branding', catLabel:'Branding & Logos', year:'2026',
+   desc:'A bold logo for a game studio: a gentle giant holding a tiny game controller, paired with chunky hand-cut lettering and a red sunset block.',
+   tags:['Logo','Mascot','Gaming'], tools:'Illustrator'},
+  {id:'beardsmen', img:'images/royal-beardsmen.jpeg', bg:'#5E9C9A', title:'Royal Beardsmen — Badge Logo', cat:'branding', catLabel:'Branding & Logos', year:'2025',
+   desc:'A vintage badge logo for a beard-care brand: a bearded knight in an engraved, textured illustration style with classic serif lettering.',
+   tags:['Badge','Illustration','Vintage'], tools:'Illustrator, Photoshop'}
+];
+
+const visual = (p, inModal) => p.img
+  ? `<img src="${p.img}" alt="${p.title}" loading="lazy" style="width:100%;height:100%;object-fit:${inModal ? 'contain' : (p.fit || 'cover')};background:${p.bg || '#FFFDF8'}">`
+  : art[p.id];
+
+/* ---------- render grid ---------- */
+const grid = document.getElementById('grid');
+grid.innerHTML = projects.map((p,i)=>`
+  <button class="card reveal${p.featured?' featured':''}" data-cat="${p.cat}" data-i="${i}" aria-label="Open project: ${p.title}">
+    <div class="thumb">${p.cover ? p.cover.map(s=>`<img src="${s}" alt="" loading="lazy">`).join('') : visual(p)}</div>
+    <div class="meta"><div>${p.gallery?`<span class="badge">Client case study · ${p.gallery.length} images</span>`:''}<h3>${p.title}</h3><small>${p.catLabel} · ${p.year}</small></div><span class="arrow">→</span></div>
+  </button>`).join('');
+
+/* hero collage */
+document.getElementById('hc1').innerHTML = visual(projects[2]);
+document.getElementById('hc2').innerHTML = visual(projects[3]);
+document.getElementById('hc3').innerHTML = `<img src="images/silvertails-kit-front-back.jpeg" alt="Silvertails × 404 training kit">`;
+
+/* ---------- filters ---------- */
+document.querySelectorAll('.filters button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.filters button').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');
+  const f = b.dataset.filter;
+  grid.querySelectorAll('.card').forEach(c=>c.classList.toggle('hide', f!=='all' && c.dataset.cat!==f));
+}));
+
+/* ---------- modal ---------- */
+const modal = document.getElementById('modal');
+grid.addEventListener('click', e=>{
+  const c = e.target.closest('.card'); if(!c) return;
+  const p = projects[c.dataset.i];
+  const mArt = document.getElementById('mArt');
+  mArt.classList.toggle('gallery', !!p.gallery);
+  mArt.innerHTML = p.gallery
+    ? p.gallery.map(g=>`<figure class="${g.cls||''}"><a href="${g.src}" target="_blank" rel="noopener"><img src="${g.src}" alt="${p.title}: ${g.cap}" loading="lazy"><figcaption>${g.cap}</figcaption></a></figure>`).join('')
+    : visual(p, true);
+  document.getElementById('mTitle').textContent = p.title;
+  document.getElementById('mDesc').textContent = p.desc;
+  document.getElementById('mCat').textContent = p.catLabel;
+  document.getElementById('mYear').textContent = p.year;
+  document.getElementById('mTools').textContent = p.tools;
+  document.getElementById('mTags').innerHTML = p.tags.map(t=>`<span>${t}</span>`).join('');
+  modal.showModal();
+});
+document.getElementById('closeModal').onclick = ()=>modal.close();
+modal.addEventListener('click', e=>{ if(e.target===modal) modal.close(); });
+
+/* ---------- marquee ---------- */
+const words = ['Brand Identity','Logo Design','Apparel Design','Social Media','Posters','Illustration','Packaging','Brand Guidelines','Ad Creatives'];
+document.getElementById('marquee').innerHTML = [...words,...words].map(w=>`<span>${w}</span>`).join('');
+
+/* ---------- nav ---------- */
+const header = document.querySelector('header');
+addEventListener('scroll',()=>header.classList.toggle('scrolled', scrollY>10),{passive:true});
+const menuBtn = document.getElementById('menuBtn'), navLinks = document.getElementById('navLinks');
+menuBtn.onclick = ()=>{ const o = navLinks.classList.toggle('open'); menuBtn.setAttribute('aria-expanded',o); menuBtn.textContent = o?'✕':'☰'; };
+navLinks.querySelectorAll('a').forEach(a=>a.onclick=()=>{ navLinks.classList.remove('open'); menuBtn.textContent='☰'; menuBtn.setAttribute('aria-expanded',false); });
+
+/* ---------- copy email ---------- */
+document.getElementById('copyBtn').onclick = async ()=>{
+  const msg = document.getElementById('copyMsg');
+  try{ await navigator.clipboard.writeText('personcool135@gmail.com'); msg.textContent='Copied! Talk soon ✦'; }
+  catch{ msg.textContent='personcool135@gmail.com'; }
+  setTimeout(()=>msg.textContent='',2500);
+};
+
+/* ---------- reveal + counters ---------- */
+const io = new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting) return;
+  e.target.classList.add('in'); io.unobserve(e.target);
+  e.target.querySelectorAll('[data-count]').forEach(el=>{
+    const end = +el.dataset.count; let n = 0;
+    const t = setInterval(()=>{ n++; el.textContent = n; if(n>=end) clearInterval(t); }, 900/end);
+  });
+}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
