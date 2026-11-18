@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vidhu M — Graphic Designer</title>
-<meta name="description" content="Vidhu M is a graphic designer creating logos, brand identities, apparel and bold posters. See the portfolio and get in touch.">
+<title>Vidhu M — Graphic Designer &amp; Video Editor</title>
+<meta name="description" content="Vidhu M is a graphic designer and video editor creating logos, brand identities, apparel, posters and short-form videos. See the portfolio and get in touch.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Vidhu M — Graphic Designer">
-<meta property="og:description" content="Logos, branding, apparel & posters. Bold, colourful design that feels alive.">
+<meta property="og:title" content="Vidhu M — Graphic Designer & Video Editor">
+<meta property="og:description" content="Logos, branding, apparel, posters & short-form video edits. Bold, colourful work that feels alive.">
 <meta property="og:url" content="https://anmolguptacse.github.io/vidhu-m/">
 <meta property="og:image" content="https://anmolguptacse.github.io/vidhu-m/og.png">
 <meta property="og:image:width" content="1200">
@@ -150,8 +150,33 @@
   .tools{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
   .tools span{padding:8px 14px;border:2px dashed var(--ink);border-radius:12px;font-weight:600;font-size:.95rem}
 
+  /* ---------- videos ---------- */
+  .videos{background:var(--purple);border-block:2.5px solid var(--ink)}
+  .videos .eyebrow{background:var(--paper)}
+  .videos h2{color:var(--ink)}
+  .v-note{font-size:1.9rem;transform:rotate(-3deg);background:var(--yellow);padding:4px 16px;border:2.5px solid var(--ink);border-radius:14px;box-shadow:4px 4px 0 var(--ink)}
+  .reels{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;max-width:1000px;margin:0 auto}
+  .reel:nth-child(1){transform:rotate(-2deg)}
+  .reel:nth-child(3){transform:rotate(2deg)}
+  .reel.reveal.in:nth-child(1){transform:rotate(-2deg)}
+  .reel.reveal.in:nth-child(3){transform:rotate(2deg)}
+  .phone{position:relative;aspect-ratio:9/16;border:3px solid var(--ink);border-radius:30px;overflow:hidden;background:var(--ink);box-shadow:8px 8px 0 var(--ink);transition:transform .25s}
+  .phone:hover{transform:translateY(-6px)}
+  .phone video{width:100%;height:100%;object-fit:cover;display:block;background:var(--ink);cursor:pointer}
+  .snd{position:absolute;right:12px;bottom:12px;width:48px;height:48px;border-radius:50%;border:2.5px solid var(--ink);background:var(--yellow);font-size:1.3rem;cursor:pointer;box-shadow:3px 3px 0 var(--ink);display:grid;place-items:center}
+  .phone.paused::after{content:"▶";position:absolute;inset:0;margin:auto;width:84px;height:84px;border-radius:50%;background:rgba(255,253,248,.92);border:3px solid var(--ink);display:grid;place-items:center;font-size:2rem;padding-left:6px;pointer-events:none}
+  .vbar{position:absolute;left:0;right:0;top:0;height:5px;background:rgba(255,255,255,.25)}
+  .vbar i{display:block;height:100%;width:0;background:var(--yellow)}
+  .reel figcaption{margin-top:18px;background:var(--paper);border:2.5px solid var(--ink);border-radius:18px;padding:12px 16px}
+  .reel figcaption h3{font-size:1.25rem;letter-spacing:-.02em;line-height:1.2}
+  .reel figcaption small{color:var(--muted);font-weight:600}
+  .reel .badge{background:var(--pink);color:var(--ink)}
+  .v-skills{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:48px}
+  .v-skills span{padding:10px 18px;border:2.5px solid var(--ink);border-radius:999px;background:var(--paper);font-weight:700;box-shadow:3px 3px 0 var(--ink)}
+
   /* ---------- services ---------- */
-  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  .service:nth-child(4){background:var(--purple)}
   .service{border:2.5px solid var(--ink);border-radius:var(--radius);padding:30px 26px 32px;box-shadow:var(--shadow);transition:transform .2s;position:relative;overflow:hidden}
   .service:hover{transform:translateY(-6px) rotate(-1deg)}
   .service:nth-child(1){background:var(--yellow)}
@@ -225,6 +250,9 @@
     .m-body{grid-template-columns:1fr}
   }
   @media (max-width:680px){
+    .reels{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:20px;padding:6px 16px 22px;margin:0 -16px}
+    .reel{flex:0 0 72%;scroll-snap-align:center}
+    .reel:nth-child(n){transform:none}
     .card.featured .thumb{aspect-ratio:4/3;grid-template-columns:repeat(2,1fr)}
     .card.featured .thumb img:nth-child(n+3){display:none}
     .m-art.gallery{grid-template-columns:1fr}
@@ -254,6 +282,7 @@
     <a href="#top" class="logo"><i></i>vidhu.m</a>
     <div class="nav-links" id="navLinks">
       <a href="#work">Work</a>
+      <a href="#videos">Videos</a>
       <a href="#about">About</a>
       <a href="#services">Services</a>
       <a href="#contact">Contact</a>
@@ -271,7 +300,7 @@
     <div>
       <div class="status"><span class="dot"></span> Available for freelance &amp; full-time</div>
       <h1>Hi, I'm<br><span class="squiggle">Vidhu M<svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M2 12 Q 20 2 38 12 T 75 12 T 112 12 T 150 12 T 188 12 T 225 12 T 262 12 T 298 12" fill="none" stroke="#FF5FA2" stroke-width="5" stroke-linecap="round"/></svg></span><br><span class="outline">designer.</span></h1>
-      <p class="lead">I design <b>brands people remember</b>, <b>social posts that stop the scroll</b> and <b>posters loud enough to hang on walls</b>.</p>
+      <p class="lead">Graphic designer &amp; video editor. I make <b>brands people remember</b>, <b>videos that keep people watching</b> and <b>posters loud enough to hang on walls</b>.</p>
       <div class="hero-ctas">
         <a href="#work" class="btn">See my work ↓</a>
         <a href="mailto:personcool135@gmail.com" class="btn ghost">Hire me</a>
@@ -312,6 +341,42 @@
       </div>
     </div>
     <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<!-- ================= VIDEOS ================= -->
+<section id="videos" class="videos">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Video editing</span>
+        <h2>Edits that keep<br>you <em>watching</em></h2>
+      </div>
+      <p class="hand v-note">tap a video for sound 🔊</p>
+    </div>
+    <div class="reels">
+      <figure class="reel reveal">
+        <div class="phone">
+          <video src="videos/roblox-horror-chase.mp4" poster="videos/roblox-horror-chase.jpg" muted loop playsinline preload="metadata" disablepictureinpicture></video><button class="snd" type="button" aria-label="Turn sound on">🔇</button>
+        </div>
+        <figcaption><span class="badge">Short · 0:16</span><h3>Scary vs Tame</h3><small>Roblox horror short</small></figcaption>
+      </figure>
+      <figure class="reel reveal">
+        <div class="phone">
+          <video src="videos/roblox-mimic.mp4" poster="videos/roblox-mimic.jpg" muted loop playsinline preload="metadata" disablepictureinpicture></video><button class="snd" type="button" aria-label="Turn sound on">🔇</button>
+        </div>
+        <figcaption><span class="badge">Short · 0:10</span><h3>Roblox Mimic</h3><small>Gaming short</small></figcaption>
+      </figure>
+      <figure class="reel reveal">
+        <div class="phone">
+          <video src="videos/roblox-horror-game.mp4" poster="videos/roblox-horror-game.jpg" muted loop playsinline preload="metadata" disablepictureinpicture></video><button class="snd" type="button" aria-label="Turn sound on">🔇</button>
+        </div>
+        <figcaption><span class="badge">Short · 0:15</span><h3>Roblox Horror Game</h3><small>Gaming short</small></figcaption>
+      </figure>
+    </div>
+    <div class="v-skills reveal">
+      <span>✂️ Fast-paced cuts</span><span>💬 Animated captions</span><span>😂 Meme &amp; sticker overlays</span><span>🎵 Sound design</span><span>📱 Vertical 9:16 for Reels &amp; Shorts</span>
+    </div>
   </div>
 </section>
 
@@ -366,7 +431,7 @@
         <span class="eyebrow">Services</span>
         <h2>How I can<br><em>help</em> you</h2>
       </div>
-      <p class="hand" style="font-size:1.8rem;transform:rotate(-3deg)">pick one… or all three! ✨</p>
+      <p class="hand" style="font-size:1.8rem;transform:rotate(-3deg)">pick one… or all four! ✨</p>
     </div>
     <div class="services-grid">
       <article class="service reveal">
@@ -389,6 +454,13 @@
         <h3>Posters &amp; Illustration</h3>
         <p>Eye-catching posters and custom illustrations for events, campaigns and walls.</p>
         <ul><li>Event &amp; gig posters</li><li>Custom illustrations</li><li>Print &amp; merch graphics</li><li>Editorial artwork</li></ul>
+      </article>
+      <article class="service reveal">
+        <span class="num">04</span>
+        <div class="icon"><svg width="34" height="34" viewBox="0 0 34 34"><rect x="4" y="8" width="26" height="18" rx="4" fill="#FF5FA2" stroke="#1B1B1F" stroke-width="2.5"/><path d="M14 12.5 L22 17 L14 21.5Z" fill="#FFF6E9" stroke="#1B1B1F" stroke-width="2" stroke-linejoin="round"/></svg></div>
+        <h3>Video Editing</h3>
+        <p>Short, punchy edits that hook viewers in the first second and keep them watching.</p>
+        <ul><li>Reels &amp; YouTube Shorts</li><li>Animated captions</li><li>Meme &amp; sticker overlays</li><li>Sound &amp; music sync</li></ul>
       </article>
     </div>
   </div>
@@ -619,8 +691,34 @@ grid.addEventListener('click', e=>{
 document.getElementById('closeModal').onclick = ()=>modal.close();
 modal.addEventListener('click', e=>{ if(e.target===modal) modal.close(); });
 
+/* ---------- videos: autoplay muted in view, tap for sound ---------- */
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const vids = [...document.querySelectorAll('.phone video')];
+vids.forEach(v=>{
+  const phone = v.parentElement, btn = phone.querySelector('.snd');
+  phone.insertAdjacentHTML('afterbegin','<div class="vbar"><i></i></div>');
+  const bar = phone.querySelector('.vbar i');
+  const sync = ()=>{ btn.textContent = v.muted ? '🔇' : '🔊'; btn.setAttribute('aria-label', v.muted ? 'Turn sound on' : 'Turn sound off'); phone.classList.toggle('paused', v.paused); };
+  v.addEventListener('timeupdate',()=>{ if(v.duration) bar.style.width = (v.currentTime/v.duration*100)+'%'; });
+  ['play','pause','volumechange'].forEach(e=>v.addEventListener(e,sync));
+  const soloSound = ()=>vids.forEach(o=>{ if(o!==v) o.muted = true; });
+  btn.addEventListener('click',e=>{ e.stopPropagation(); v.muted = !v.muted; if(!v.muted){ soloSound(); v.play(); } });
+  v.addEventListener('click',()=>{
+    if(v.muted){ v.muted = false; soloSound(); v.play(); }
+    else if(v.paused){ v.play(); }
+    else { v.pause(); }
+  });
+  sync();
+});
+const vio = new IntersectionObserver(es=>es.forEach(e=>{
+  const v = e.target;
+  if(e.isIntersecting){ if(!reduceMotion || !v.muted) v.play().catch(()=>{}); }
+  else { v.pause(); }
+}),{threshold:.5});
+vids.forEach(v=>vio.observe(v));
+
 /* ---------- marquee ---------- */
-const words = ['Brand Identity','Logo Design','Apparel Design','Social Media','Posters','Illustration','Packaging','Brand Guidelines','Ad Creatives'];
+const words = ['Brand Identity','Logo Design','Video Editing','Apparel Design','Reels & Shorts','Social Media','Posters','Illustration','Packaging','Brand Guidelines','Ad Creatives'];
 document.getElementById('marquee').innerHTML = [...words,...words].map(w=>`<span>${w}</span>`).join('');
 
 /* ---------- nav ---------- */
