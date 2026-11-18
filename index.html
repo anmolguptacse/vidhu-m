@@ -150,16 +150,37 @@
   .tools{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
   .tools span{padding:8px 14px;border:2px dashed var(--ink);border-radius:12px;font-weight:600;font-size:.95rem}
 
+  /* ---------- posters ---------- */
+  .posters{background:var(--paper);border-top:2.5px solid var(--ink)}
+  .p-note{font-size:1.8rem;transform:rotate(-3deg)}
+  .wall{columns:4 240px;column-gap:22px}
+  .poster{break-inside:avoid;margin:0 0 22px;display:block;width:100%;padding:0;border:2.5px solid var(--ink);border-radius:18px;overflow:hidden;background:var(--paper);cursor:zoom-in;position:relative;transition:transform .2s,box-shadow .2s;font-family:inherit;color:var(--ink);text-align:left}
+  .poster:hover,.poster:focus-visible{transform:translate(-3px,-3px) rotate(-.5deg);box-shadow:6px 6px 0 var(--ink);outline:none}
+  .poster img{width:100%;height:auto;display:block}
+  .poster span{position:absolute;left:10px;bottom:10px;padding:4px 12px;border:2px solid var(--ink);border-radius:999px;background:var(--yellow);font-weight:800;font-size:.8rem;opacity:0;transform:translateY(6px);transition:all .2s}
+  .poster:hover span,.poster:focus-visible span{opacity:1;transform:none}
+  #lightbox{max-width:min(1000px,calc(100% - 32px));background:var(--ink);border-color:var(--ink);padding:0}
+  #lightbox img{display:block;max-width:100%;max-height:82vh;margin:0 auto}
+  #lightbox p{color:var(--cream);font-weight:700;text-align:center;padding:12px 16px 16px}
+  .lb-close{position:absolute;top:12px;right:12px;margin:0}
+
   /* ---------- videos ---------- */
   .videos{background:var(--purple);border-block:2.5px solid var(--ink)}
   .videos .eyebrow{background:var(--paper)}
   .videos h2{color:var(--ink)}
   .v-note{font-size:1.9rem;transform:rotate(-3deg);background:var(--yellow);padding:4px 16px;border:2.5px solid var(--ink);border-radius:14px;box-shadow:4px 4px 0 var(--ink)}
-  .reels{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;max-width:1000px;margin:0 auto}
-  .reel:nth-child(1){transform:rotate(-2deg)}
-  .reel:nth-child(3){transform:rotate(2deg)}
-  .reel.reveal.in:nth-child(1){transform:rotate(-2deg)}
-  .reel.reveal.in:nth-child(3){transform:rotate(2deg)}
+  .v-tabs{margin:-12px 0 36px}
+  .v-tabs button{background:var(--paper)}
+  .v-tabs button.active{background:var(--ink);color:var(--cream)}
+  .v-tabs b{display:inline-block;margin-left:6px;padding:0 7px;border-radius:999px;background:var(--yellow);color:var(--ink);font-size:.8rem}
+  .reels{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-flow:dense;gap:32px;align-items:start}
+  .reel.wide{grid-column:1/-1}
+  .reel.wide .phone{max-width:980px;margin:0 auto}
+  .reel.wide figcaption{max-width:980px;margin-left:auto;margin-right:auto}
+  .reel.hide{display:none}
+  .phone.landscape{aspect-ratio:16/9;border-radius:22px}
+  .v-more{text-align:center;margin-top:40px}
+  .v-more[hidden]{display:none}
   .phone{position:relative;aspect-ratio:9/16;border:3px solid var(--ink);border-radius:30px;overflow:hidden;background:var(--ink);box-shadow:8px 8px 0 var(--ink);transition:transform .25s}
   .phone:hover{transform:translateY(-6px)}
   .phone video{width:100%;height:100%;object-fit:cover;display:block;background:var(--ink);cursor:pointer}
@@ -252,7 +273,8 @@
   @media (max-width:680px){
     .reels{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:20px;padding:6px 16px 22px;margin:0 -16px}
     .reel{flex:0 0 72%;scroll-snap-align:center}
-    .reel:nth-child(n){transform:none}
+    .reel.wide{flex-basis:90%}
+    .v-more{display:none}
     .card.featured .thumb{aspect-ratio:4/3;grid-template-columns:repeat(2,1fr)}
     .card.featured .thumb img:nth-child(n+3){display:none}
     .m-art.gallery{grid-template-columns:1fr}
@@ -282,6 +304,7 @@
     <a href="#top" class="logo"><i></i>vidhu.m</a>
     <div class="nav-links" id="navLinks">
       <a href="#work">Work</a>
+      <a href="#posters">Posters</a>
       <a href="#videos">Videos</a>
       <a href="#about">About</a>
       <a href="#services">Services</a>
@@ -344,6 +367,26 @@
   </div>
 </section>
 
+<!-- ================= POSTERS ================= -->
+<section id="posters" class="posters">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Posters &amp; social graphics</span>
+        <h2>Loud on the<br><em>timeline</em></h2>
+      </div>
+      <p class="hand p-note">tap any poster to view it big ↘</p>
+    </div>
+    <div class="wall" id="wall"></div>
+  </div>
+</section>
+
+<dialog id="lightbox" aria-label="Poster preview">
+  <button class="close lb-close" id="lbClose" aria-label="Close">✕</button>
+  <img id="lbImg" alt="">
+  <p id="lbCap"></p>
+</dialog>
+
 <!-- ================= VIDEOS ================= -->
 <section id="videos" class="videos">
   <div class="wrap">
@@ -354,28 +397,16 @@
       </div>
       <p class="hand v-note">tap a video for sound 🔊</p>
     </div>
-    <div class="reels">
-      <figure class="reel reveal">
-        <div class="phone">
-          <video src="videos/roblox-horror-chase.mp4" poster="videos/roblox-horror-chase.jpg" muted loop playsinline preload="metadata" disablepictureinpicture></video><button class="snd" type="button" aria-label="Turn sound on">🔇</button>
-        </div>
-        <figcaption><span class="badge">Short · 0:16</span><h3>Scary vs Tame</h3><small>Roblox horror short</small></figcaption>
-      </figure>
-      <figure class="reel reveal">
-        <div class="phone">
-          <video src="videos/roblox-mimic.mp4" poster="videos/roblox-mimic.jpg" muted loop playsinline preload="metadata" disablepictureinpicture></video><button class="snd" type="button" aria-label="Turn sound on">🔇</button>
-        </div>
-        <figcaption><span class="badge">Short · 0:10</span><h3>Roblox Mimic</h3><small>Gaming short</small></figcaption>
-      </figure>
-      <figure class="reel reveal">
-        <div class="phone">
-          <video src="videos/roblox-horror-game.mp4" poster="videos/roblox-horror-game.jpg" muted loop playsinline preload="metadata" disablepictureinpicture></video><button class="snd" type="button" aria-label="Turn sound on">🔇</button>
-        </div>
-        <figcaption><span class="badge">Short · 0:15</span><h3>Roblox Horror Game</h3><small>Gaming short</small></figcaption>
-      </figure>
+    <div class="filters v-tabs" id="vTabs" role="tablist" aria-label="Filter videos">
+      <button class="active" data-v="all">All</button>
+      <button data-v="ads">Ads</button>
+      <button data-v="gaming">Gaming</button>
+      <button data-v="irl">Lifestyle &amp; IRL</button>
     </div>
+    <div class="reels" id="reels"></div>
+    <div class="v-more"><button class="btn" id="vMore" type="button">Show all videos ↓</button></div>
     <div class="v-skills reveal">
-      <span>✂️ Fast-paced cuts</span><span>💬 Animated captions</span><span>😂 Meme &amp; sticker overlays</span><span>🎵 Sound design</span><span>📱 Vertical 9:16 for Reels &amp; Shorts</span>
+      <span>✂️ Fast-paced cuts</span><span>💬 Animated captions</span><span>🎨 Colour grading</span><span>✨ Motion graphics &amp; FX</span><span>😂 Meme &amp; sticker overlays</span><span>🎵 Sound design</span><span>📱 Reels, Shorts &amp; TikTok</span><span>🎬 YouTube long-form</span>
     </div>
   </div>
 </section>
@@ -691,6 +722,90 @@ grid.addEventListener('click', e=>{
 document.getElementById('closeModal').onclick = ()=>modal.close();
 modal.addEventListener('click', e=>{ if(e.target===modal) modal.close(); });
 
+/* ---------- posters ---------- */
+const POSTERS = [
+  {f:'afcon-major',          t:'AFCON — Major',               c:'Sports'},
+  {f:'arsenal-matchday',     t:'Arsenal — Match Day',          c:'Sports'},
+  {f:'awards-amerado-fameye',t:'Amerado × Fameye — Live',      c:'Events & music'},
+  {f:'abedi-pele',           t:'Abedi Pelé — Legend',          c:'Sports'},
+  {f:'thumb-ucl-review',     t:'Champions League Review',      c:'YouTube thumbnail'},
+  {f:'holy-ghost-fest',      t:'Holy Ghost Fest 2026',         c:'Church event'},
+  {f:'epl-we-are-back',      t:'Premier League — We Are Back', c:'Sports'},
+  {f:'album-cover',          t:'Album Cover',                  c:'Music artwork'},
+  {f:'eid-ul-fitr',          t:'Happy Eid ul-Fitr',            c:'Festive greeting'},
+  {f:'thumb-chef-faila',     t:'Chef Faila Speaks',            c:'YouTube thumbnail'},
+  {f:'happy-easter',         t:'Happy Easter',                 c:'Festive greeting'},
+  {f:'dumor-tribute',        t:'Komla Dumor — Tribute',        c:'Memorial design'}
+];
+const wall = document.getElementById('wall');
+wall.innerHTML = POSTERS.map((p,i)=>`<button class="poster reveal" type="button" data-i="${i}" aria-label="View ${p.t}"><img src="images/posters/${p.f}.jpg" alt="${p.t} — ${p.c}" loading="lazy"><span>${p.c}</span></button>`).join('');
+const lb = document.getElementById('lightbox');
+wall.addEventListener('click',e=>{
+  const b = e.target.closest('.poster'); if(!b) return;
+  const p = POSTERS[b.dataset.i];
+  document.getElementById('lbImg').src = `images/posters/${p.f}.jpg`;
+  document.getElementById('lbImg').alt = p.t;
+  document.getElementById('lbCap').textContent = `${p.t} · ${p.c}`;
+  lb.showModal();
+});
+document.getElementById('lbClose').onclick = ()=>lb.close();
+lb.addEventListener('click',e=>{ if(e.target===lb) lb.close(); });
+
+/* ---------- videos: data ----------
+   To add a video: put the .mp4 + .jpg poster in videos/ and add a line here.
+   wide:true = horizontal 16:9 video. */
+const VIDEOS = [
+  {f:'ad-gojo-earrings',   cat:'ads',    t:'Gojo Earrings',              s:'Jewellery product ad', d:'0:18'},
+  {f:'irl-lambo',          cat:'irl',    t:'Lamborghini Showroom',       s:'Event edit · colour graded', d:'0:42'},
+  {f:'ad-car-culture',     cat:'ads',    t:'Car Culture',                s:'Automotive ad · stylised grade', d:'0:32', wide:true, from:2.4, to:28.3},
+  {f:'game-deadlock-chat', cat:'gaming', t:'Average Deadlock Chat',      s:'Streamer short · captions', d:'0:26'},
+  {f:'irl-evil-date',      cat:'irl',    t:'The Evil Date',              s:'Story edit · animated captions', d:'0:22'},
+  {f:'game-strange-ring',  cat:'gaming', t:'Strange Ring',               s:'Gaming short · glitch FX', d:'0:32'},
+  {f:'irl-real-estate',    cat:'irl',    t:'Real Estate Tour',           s:'Property walkthrough', d:'1:27'},
+  {f:'irl-construction',   cat:'irl',    t:'Construction Site',          s:'Drone + cinematic edit', d:'0:32', wide:true},
+  {f:'ad-jo-capital',      cat:'ads',    t:'Jo Capital',                 s:'Promo ad · motion graphics', d:'0:50'},
+  {f:'game-moth-clip',     cat:'gaming', t:'Full of Zzz’s',         s:'Streamer clip · meme captions', d:'0:34'},
+  {f:'irl-barber',         cat:'irl',    t:'The Barber',                 s:'Lifestyle edit · colour graded', d:'0:15'},
+  {f:'irl-fashion',        cat:'irl',    t:'Runway Edit',                s:'Fashion short · text overlays', d:'0:18'},
+  {f:'game-mo-beats-lash', cat:'gaming', t:'Mo Beats Lash',              s:'YouTube long-form edit', d:'1:47', wide:true},
+  {f:'roblox-horror-chase',cat:'gaming', t:'Scary vs Tame',              s:'Roblox horror short', d:'0:16'},
+  {f:'roblox-mimic',       cat:'gaming', t:'Roblox Mimic',               s:'Gaming short', d:'0:10'},
+  {f:'roblox-horror-game', cat:'gaming', t:'Roblox Horror Game',         s:'Gaming short', d:'0:15'}
+];
+const CAT_LABEL = {ads:'Ad', gaming:'Gaming', irl:'Lifestyle'};
+const INITIAL = 8; // 6 vertical + 2 wide = clean rows
+document.getElementById('reels').innerHTML = VIDEOS.map(v=>`
+  <figure class="reel reveal${v.wide?' wide':''}" data-v="${v.cat}">
+    <div class="phone${v.wide?' landscape':''}">
+      <video src="videos/${v.f}.mp4" poster="videos/${v.f}.jpg"${v.from!=null?` data-from="${v.from}" data-to="${v.to}"`:''} muted loop playsinline preload="none" disablepictureinpicture aria-label="${v.t} video"></video><button class="snd" type="button" aria-label="Turn sound on">🔇</button>
+    </div>
+    <figcaption><span class="badge">${CAT_LABEL[v.cat]} · ${v.d}</span><h3>${v.t}</h3><small>${v.s}</small></figcaption>
+  </figure>`).join('');
+document.querySelectorAll('#vTabs button').forEach(b=>{
+  const n = b.dataset.v==='all' ? VIDEOS.length : VIDEOS.filter(v=>v.cat===b.dataset.v).length;
+  b.insertAdjacentHTML('beforeend', `<b>${n}</b>`);
+});
+const reelEls = [...document.querySelectorAll('#reels .reel')];
+const vMore = document.getElementById('vMore');
+let vFilter = 'all', vExpanded = false;
+function applyVideoFilter(){
+  let shown = 0;
+  reelEls.forEach(el=>{
+    const match = vFilter==='all' || el.dataset.v===vFilter;
+    const visible = match && (vFilter!=='all' || vExpanded || shown < INITIAL);
+    if(match) shown++;
+    el.classList.toggle('hide', !visible);
+    if(!visible){ const v = el.querySelector('video'); v.pause(); v.muted = true; }
+  });
+  vMore.parentElement.hidden = !(vFilter==='all' && !vExpanded && VIDEOS.length > INITIAL);
+}
+document.querySelectorAll('#vTabs button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('#vTabs button').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active'); vFilter = b.dataset.v; applyVideoFilter();
+}));
+vMore.addEventListener('click',()=>{ vExpanded = true; applyVideoFilter(); });
+applyVideoFilter();
+
 /* ---------- videos: autoplay muted in view, tap for sound ---------- */
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const vids = [...document.querySelectorAll('.phone video')];
@@ -700,6 +815,13 @@ vids.forEach(v=>{
   const bar = phone.querySelector('.vbar i');
   const sync = ()=>{ btn.textContent = v.muted ? '🔇' : '🔊'; btn.setAttribute('aria-label', v.muted ? 'Turn sound on' : 'Turn sound off'); phone.classList.toggle('paused', v.paused); };
   v.addEventListener('timeupdate',()=>{ if(v.duration) bar.style.width = (v.currentTime/v.duration*100)+'%'; });
+  // Silent previews can skip a stylistic intro/outro (e.g. TV static); with sound on, the full cut plays.
+  if(v.dataset.from){
+    const from = +v.dataset.from, to = +v.dataset.to;
+    v.addEventListener('loadedmetadata',()=>{ if(v.muted) v.currentTime = from; });
+    v.addEventListener('timeupdate',()=>{ if(v.muted && (v.currentTime >= to || v.currentTime < from)) v.currentTime = from; });
+    v.addEventListener('volumechange',()=>{ if(!v.muted && v.currentTime > 0.5) v.currentTime = 0; });
+  }
   ['play','pause','volumechange'].forEach(e=>v.addEventListener(e,sync));
   const soloSound = ()=>vids.forEach(o=>{ if(o!==v) o.muted = true; });
   btn.addEventListener('click',e=>{ e.stopPropagation(); v.muted = !v.muted; if(!v.muted){ soloSound(); v.play(); } });
